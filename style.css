@@ -1,0 +1,136 @@
+/* 1. VARIABEL & RESET */
+:root {
+    --primary-color: #0d6efd; 
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* 2. TOMBOL UTAMA */
+.capture { 
+    background-color: var(--primary-color) !important; 
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.capture:hover {
+    background-color: #0b5ed7 !important; /* Warna dibuat lebih gelap agar terasa interaktif */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
+}
+
+/* 3. SECTION LAYOUT */
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    background: linear-gradient(135deg, #d1c4e9 0%, #ffeaa7 40%, #b2dfdb 80%, #f8bbd0 100%);
+}
+
+#booth {
+    background-color: #ffffff; 
+    padding: 60px 0;
+}
+
+/* 4. KAMERA & VIDEO */
+.cam-frame {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 4 / 3;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+/* 5. PHOTO STRIP */
+.strip-container {
+    background: white;
+    width: 180px;
+    padding: 15px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 550px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: 0.3s;
+}
+
+.strip-container::-webkit-scrollbar { display: none; }
+
+.strip-frame {
+    width: 100%;
+    height: 110px;
+    background: #f8f9fa;
+    overflow: hidden;
+    margin-bottom: 5px; 
+}
+
+.strip-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 6. KONTAK & FORM */
+#contact .card {
+    transition: transform 0.3s ease;
+}
+
+#contact .card:hover {
+    transform: translateY(-5px);
+}
+
+#contact .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+}
+
+/* 7. EFEK VISUAL */
+#countdown {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem; font-weight: 800;
+    color: white;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 10; display: none;
+}
+
+#flash {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: white; opacity: 0;
+    pointer-events: none; z-index: 10;
+}
+
+.flash-active { animation: blink 0.4s; }
+@keyframes blink { 
+    0% { opacity: 0; } 
+    50% { opacity: 1; } 
+    100% { opacity: 0; } 
+}
+
+.color-dot { 
+    width: 30px; height: 30px; 
+    border-radius: 50%; cursor: pointer; 
+    transition: 0.2s; border: 1px solid #000000; 
+    display: inline-block;
+}
